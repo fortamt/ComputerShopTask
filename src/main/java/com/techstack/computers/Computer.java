@@ -7,6 +7,7 @@ import com.techstack.computers.component.motherboard.Motherboard;
 import lombok.experimental.SuperBuilder;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -57,6 +58,26 @@ public abstract class Computer {
                 ", \n\thardDrive=" + hardDrive.stream().map(HardDrive::getShortInfo).collect(Collectors.joining(" + ")) +
                 ", \n\tgraphicCard=" + graphicCard.getShortInfo() +
                 ", \n\tos=" + os.getShortInfo();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Computer computer = (Computer) o;
+        return Objects.equals(nameAndModelInfo, computer.nameAndModelInfo) &&
+                Objects.equals(uuid, computer.uuid) &&
+                Objects.equals(cpu, computer.cpu) &&
+                Objects.equals(ram, computer.ram) &&
+                Objects.equals(hardDrive, computer.hardDrive) &&
+                Objects.equals(graphicCard, computer.graphicCard) &&
+                Objects.equals(motherboard, computer.motherboard) &&
+                Objects.equals(os, computer.os) && type == computer.type;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nameAndModelInfo, uuid, cpu, ram, hardDrive, graphicCard, motherboard, os, type);
     }
 
     public enum Type {
