@@ -15,9 +15,12 @@ public class App {
 //    so all child classes would independently override their pricing, let's say laptops just immediately indicated
 //    their full cost, because it is impossible to get access the price of soldered parts on the motherboard.
 
-//  Also I thought about field in Component.class such kind of "ConnectionInterface" (reference type)
-//  for define connection opportunity of copmonents, but different components have too different interface connection
-//  some has only input, some has only output, some hasn`t any. To blurry abstraction.
+//    Also I thought about field in Component.class such kind of "ConnectionInterface" (reference type)
+//    for define connection opportunity of copmonents, but different components have too different interface connection
+//    some has only input, some has only output, some hasn`t any. To blurry abstraction.
+
+//    here I sell computers by fullname
+//    in real store we need to generate unique id for each computer
 
     public static void main( String[] args ) {
 
