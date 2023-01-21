@@ -65,6 +65,7 @@ public class Shop {
         assert computerForSell != null;
         this.cash += computerForSell.getPrice();
         stock.remove(computerForSell);
+        System.out.println("Success");
     }
 
     public String showFullProperties(String computerId) {
