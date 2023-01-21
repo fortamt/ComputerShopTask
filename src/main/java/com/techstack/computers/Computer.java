@@ -7,12 +7,14 @@ import com.techstack.computers.component.motherboard.Motherboard;
 import lombok.experimental.SuperBuilder;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @SuperBuilder
 public abstract class Computer {
 
     private String nameAndModelInfo;
+    private UUID uuid;
     private CPU cpu;
     private List<RAM> ram;
     private List<HardDrive> hardDrive;
@@ -21,8 +23,8 @@ public abstract class Computer {
     private Os os;
     private Type type;
 
-    public String getNameAndModelInfo() {
-        return nameAndModelInfo;
+    public String getUuid() {
+        return uuid.toString();
     }
 
     public float getPrice() {
@@ -49,7 +51,8 @@ public abstract class Computer {
     public String toString() {
         return "-------------------------------------------------\n" +
                 nameAndModelInfo + " | " + type.name() + " | " + getPrice() + "$" +
-                "\n\tcpu=" + cpu.getShortInfo() +
+                "\n\tid=" + uuid.toString() +
+                ", \n\tcpu=" + cpu.getShortInfo() +
                 ", \n\tram=" + ram.stream().map(RAM::getShortInfo).collect(Collectors.joining(" + ")) +
                 ", \n\thardDrive=" + hardDrive.stream().map(HardDrive::getShortInfo).collect(Collectors.joining(" + ")) +
                 ", \n\tgraphicCard=" + graphicCard.getShortInfo() +

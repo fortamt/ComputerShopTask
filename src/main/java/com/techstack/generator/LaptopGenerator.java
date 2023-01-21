@@ -10,6 +10,7 @@ import com.techstack.computers.component.graphiccard.GraphicSoftware;
 import com.techstack.computers.component.motherboard.*;
 
 import java.util.List;
+import java.util.UUID;
 
 public class LaptopGenerator {
 
@@ -17,6 +18,7 @@ public class LaptopGenerator {
 
     static Laptop generate() {
         return Laptop.builder()
+                .uuid(UUID.randomUUID())
                 .nameAndModelInfo("Asus ROG Strix G15 G513IM")
                 .type(Computer.Type.LAPTOP)
                 .screen(generateScreenForLaptop())

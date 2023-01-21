@@ -10,6 +10,7 @@ import com.techstack.computers.component.graphiccard.GraphicSoftware;
 import com.techstack.computers.component.motherboard.*;
 
 import java.util.List;
+import java.util.UUID;
 
 public class AllInOneGenerator {
 
@@ -17,6 +18,7 @@ public class AllInOneGenerator {
 
     static AllInOne generate() {
         return AllInOne.builder()
+                .uuid(UUID.randomUUID())
                 .nameAndModelInfo("Artline Gaming G77 G77v45Win")
                 .type(Computer.Type.ALLINONE)
                 .screen(generateScreenForAllInOne())

@@ -35,7 +35,7 @@ public class App {
         System.out.println("desktop - shows only desktop");
         System.out.println("laptop - shows only laptops");
         System.out.println("all-in-one - shows only all-in-one");
-        System.out.println("show full specs - shows full properties of PC by full name (full name - check it in stock)");
+        System.out.println("show full specs - shows full properties of PC by id (check it in stock)");
         System.out.println("buy - to buy a computer");
         System.out.println("exit - exit");
 
@@ -61,9 +61,12 @@ public class App {
                     System.out.println(shop.showFullProperties(input));
                     break;
                 case "buy":
-                    System.out.println("Type full computer name");
+                    System.out.println("Type id");
                     input = sc.nextLine();
                     shop.sellComputer(input);
+                    break;
+                case "exit":
+                    System.out.println("Have a nice day. Bye");
                     break;
                 default:
                     System.out.println("Command not support");

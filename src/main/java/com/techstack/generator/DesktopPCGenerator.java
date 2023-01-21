@@ -10,6 +10,7 @@ import com.techstack.computers.component.graphiccard.GraphicSoftware;
 import com.techstack.computers.component.motherboard.*;
 
 import java.util.List;
+import java.util.UUID;
 
 public class DesktopPCGenerator {
 
@@ -17,6 +18,7 @@ public class DesktopPCGenerator {
 
     static DesktopPC generate() {
         return DesktopPC.builder()
+                .uuid(UUID.randomUUID())
                 .nameAndModelInfo("Artline Gaming X55 White")
                 .type(Computer.Type.DESKTOPPC)
                 .psu(generatePSUForDesktopPC())

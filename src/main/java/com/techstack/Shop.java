@@ -51,14 +51,14 @@ public class Shop {
                 .collect(Collectors.toList());
     }
 
-    public void sellComputer(String fullNameOfComputer) {
-        if (!hasStockSuchComputer(fullNameOfComputer)) {
+    public void sellComputer(String computerID) {
+        if (!hasStockSuchComputer(computerID)) {
             System.out.println("We haven`t such computer");
             return;
         }
         Computer computerForSell = null;
         for (Computer computer : stock) {
-            if (computer.getNameAndModelInfo().equals(fullNameOfComputer)) {
+            if (computer.getUuid().equals(computerID)) {
                 computerForSell = computer;
             }
         }
@@ -67,10 +67,10 @@ public class Shop {
         stock.remove(computerForSell);
     }
 
-    public String showFullProperties(String fullComputerName) {
-        if (hasStockSuchComputer(fullComputerName)) {
+    public String showFullProperties(String computerId) {
+        if (hasStockSuchComputer(computerId)) {
             for (Computer computer : stock) {
-                if (computer.getNameAndModelInfo().equals(fullComputerName)) {
+                if (computer.getUuid().equals(computerId)) {
                     return computer.getFullProperties();
                 }
             }
@@ -79,9 +79,9 @@ public class Shop {
         return null;
     }
 
-    private boolean hasStockSuchComputer(String fullComputerName) {
+    private boolean hasStockSuchComputer(String computerId) {
         return stock.stream()
-                .map(Computer::getNameAndModelInfo)
-                .anyMatch(name -> name.equals(fullComputerName));
+                .map(Computer::getUuid)
+                .anyMatch(name -> name.equals(computerId));
     }
 }
