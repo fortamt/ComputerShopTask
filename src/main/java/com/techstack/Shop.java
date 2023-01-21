@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 public class Shop {
 
     private static Shop instance;
-    private final List<Computer> stock;
+    private List<Computer> stock;
     private float cash;
 
     private Shop(List<Computer> stock, float cash) {
@@ -56,12 +56,15 @@ public class Shop {
             System.out.println("We haven`t such computer");
             return;
         }
+        Computer computerForSell = null;
         for (Computer computer : stock) {
             if (computer.getNameAndModelInfo().equals(fullNameOfComputer)) {
-                this.cash += computer.getPrice();
-                stock.remove(computer);
+                computerForSell = computer;
             }
         }
+        assert computerForSell != null;
+        this.cash += computerForSell.getPrice();
+        stock.remove(computerForSell);
     }
 
     public String showFullProperties(String fullComputerName) {
