@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 public class Shop {
 
     private static Shop instance;
-    private List<Computer> stock;
+    private final List<Computer> stock;
     private float cash;
 
     private Shop(List<Computer> stock, float cash) {
