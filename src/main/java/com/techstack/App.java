@@ -19,9 +19,6 @@ public class App {
 //    for define connection opportunity of copmonents, but different components have too different interface connection
 //    some has only input, some has only output, some hasn`t any. To blurry abstraction.
 
-//    here I sell computers by fullname
-//    in real store we need to generate unique id for each computer
-
     public static void main( String[] args ) {
 
         Shop shop = Shop.getInstance(Generator.generateStock(), 10000.0f);
